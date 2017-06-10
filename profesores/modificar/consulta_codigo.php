@@ -6,9 +6,9 @@ include("../../conectar.php");
 //consulta los datos del empleado por su id
 $idemp=$_POST['idemp'];
 
-$sql=mysql_query("SELECT * FROM profesor WHERE curp=$idemp",$conectar);
+$sql=mysqli_query($conectar,"SELECT * FROM profesor WHERE curp=$idemp");
 
-$row = mysql_fetch_array($sql);
+$row = mysqli_fetch_array($sql);
 
 //valores de las consultas
 $curp = $row['curp'];
@@ -147,17 +147,17 @@ list($ano,$mes,$dia) = explode("-",$fecha_nacimiento);
     </label>
   </p>
   <p>
-    <label>Profesión:
+    <label>Profesiï¿½n:
     <select name="profesion" id="profesion">
       <option value="<?php echo $profesion; ?>" selected="selected"><?php echo $profesion; ?></option>
       <option value="Admon. Empresas">Admon. Empresas</option>
-      <option value="Cinecias de la Comunicación">Ciencias de la Comunicación</option>
+      <option value="Cinecias de la Comunicaciï¿½n">Ciencias de la Comunicaciï¿½n</option>
       <option value="Derecho">Derecho</option>
-      <option value="Diseño Grafico">Diseño Grafico</option>
+      <option value="Diseï¿½o Grafico">Diseï¿½o Grafico</option>
       <option value="Educacion Artistica">Educacion Artistica</option>
       <option value="Ingeniero Civil">Ingeniero Civil</option>
       <option value="Quimica">Quimica</option>
-      <option value="Informatica">Informática</option>
+      <option value="Informatica">Informï¿½tica</option>
     </select>
 </label>
   </p>

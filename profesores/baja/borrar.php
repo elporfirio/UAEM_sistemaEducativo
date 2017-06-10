@@ -39,14 +39,14 @@
 				$sQuery="DELETE FROM profesor where curp IN (".implode(',',$aLista).");";
 				}
 		
-			$registros = mysql_query($sQuery, $conectar);
+			$registros = mysqli_query($conectar, $sQuery);
 				
 			if($registros)
 				echo ("Se han borrado satisfactoriamente <br><br>");
 			else
 				echo ("No existe Profesor con esa Curp");
 
-			mysql_close($conectar);
+			mysqli_close($conectar);
 			?>
   		</div>
 <div id="footer">

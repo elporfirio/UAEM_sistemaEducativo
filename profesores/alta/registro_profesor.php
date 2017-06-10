@@ -51,11 +51,11 @@ $mail_completo = "$mail@"."$mail_company";
 $consulta="insert into profesor values ('$curp','$nombre','$apellido_p','$apellido_m','$edad','$sexo','$estado_civil','$profesion','$cedula','$mail_completo','$movil','$fecha_nacimiento')";
 
 //se hace la consulta
-$hacerconsulta=mysql_query ($consulta,$conectar);
+$hacerconsulta=mysqli_query ($conectar,$consulta);
 
 //errores por si los hay
-$error = mysql_error();
-$nuerror = mysql_errno();
+$error = mysqli_error($conectar);
+$nuerror = mysqli_errno($conectar);
 ?>
 
 
@@ -93,7 +93,7 @@ $nuerror = mysql_errno();
 			echo ("<strong>Apellidos </strong> $apellido_p $apellido_m <br>");
 			echo ("<strong>Fecha de Nacimiento: </strong> $fecha_nacimiento <br>");
 			echo ("<strong>Edad: </strong> $edad <br>");
-			if (sexo == "m")
+			if ($sexo == "m")
 				$tempsex = "masculino";
 			else
 				$tempsex = "femenino";
@@ -120,8 +120,7 @@ $nuerror = mysql_errno();
 		</div>
 <?php
 		//libero datos ingresados
-		@mysql_free_result ($hacerconsulta);
-		mysql_close ($conectar);
+		mysqli_close ($conectar);
 		?>
     </div>
 </html>

@@ -18,7 +18,7 @@ $conexion=mysql_connect("localhost","root") or die ("probelmas en al conexion");
 
 mysql_select_db("alta_profesor",$conexion) or die ("probelmas en la ocnexion ");
 
-$registros= mysql_query("select curp from asignatura_ua",$conexion) or die ("probelmaas en el select".mysql_error());
+$registros= mysqli_query($conexion, "select curp from asignatura_ua") or die ("probelmaas en el select".mysqli_error($conexion));
 
 while ($reg=mysql_fecth_array($registros))
 	{
@@ -35,7 +35,7 @@ $conexion=mysql_connect("localhost","root") or die ("probelmas en al conexion");
 
 mysql_select_db("alta_profesor",$conexion) or die ("probelmas en la ocnexion ");
   
-$registros= mysql_query("select codigo from unidad_aprendizaje",$conexion) or die ("probelmaas en el select".mysql_error());
+$registros= mysql_query($conexion, "select codigo from unidad_aprendizaje") or die ("probelmaas en el select".mysqli_error($conexion));
  
 while ($reg=mysql_fecth_array($registros))
 	{

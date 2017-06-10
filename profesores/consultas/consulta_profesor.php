@@ -52,10 +52,10 @@
 		
 		$consulta = "SELECT * FROM profesor order by nombre";
  
-		$hacerconsulta = mysql_query($consulta, $conectar);
+		$hacerconsulta = mysqli_query($conectar, $consulta);
 
-		if (is_resource($hacerconsulta)){
-			$numeroregistros = mysql_num_rows($hacerconsulta);
+		if ($hacerconsulta instanceof mysqli_result){
+			$numeroregistros = mysqli_num_rows($hacerconsulta);
 		}
 
 		
@@ -64,7 +64,7 @@
 		if($numeroregistros > 0)
 			{
 			
-			while ($profe = mysql_fetch_array($hacerconsulta,MYSQL_ASSOC))
+			while ($profe = mysqli_fetch_array($hacerconsulta))
 				{
 				echo ("<hr>");
 				echo ("Curp: " .$profe["curp"]. "&nbsp;&nbsp;&nbsp;Número de Cedula: " .$profe["cedula"]. "<br>");

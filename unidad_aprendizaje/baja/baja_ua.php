@@ -49,9 +49,9 @@ function confirmar()
 	include("../../conectar.php");
 
 	$consulta = "SELECT * FROM unidad_aprendizaje;";
- 	$hacerconsulta = mysql_query($consulta, $conectar);
+ 	$hacerconsulta = mysqli_query($conectar, $consulta);
 	
-	$numeroregistros = mysql_num_rows($hacerconsulta);
+	$numeroregistros = mysqli_num_rows($hacerconsulta);
 		
 	echo "<br> Hay <strong>$numeroregistros</strong> Unidades, dadas de Alta";
 	echo ("<hr color=\"#2D5269\" size=\"1\">");
@@ -60,7 +60,7 @@ function confirmar()
 			
 	if($numeroregistros > 0)
 		{
-		while ($unidad = mysql_fetch_array($hacerconsulta,MYSQL_ASSOC))
+		while ($unidad = mysqli_fetch_array($hacerconsulta))
 			{
 			if ($color == 0)
 				{

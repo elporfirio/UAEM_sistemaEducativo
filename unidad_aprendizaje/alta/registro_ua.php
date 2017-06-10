@@ -26,11 +26,11 @@ $observaciones = $_POST["observaciones"];
 $consulta="insert into unidad_aprendizaje values ('$codigo','$unidad_aprendizaje','$creditos','$plan_estudio','$observaciones')";
 
 //se hace la consulta
-$hacerconsulta=mysql_query ($consulta,$conectar);
+$hacerconsulta=mysqli_query ($conectar,$consulta);
 
 //errores por si los hay
-$error = mysql_error();
-$nuerror = mysql_errno();
+$error = mysqli_error($conectar);
+$nuerror = mysqli_errno($conectar);
 ?>
 
 
@@ -86,9 +86,8 @@ $nuerror = mysql_errno();
 </div>
 </div>
 <?php
-	//libero datos ingresados
-	@mysql_free_result ($hacerconsulta);
-	mysql_close ($conectar);
+
+	mysqli_close ($conectar);
 ?>
 </body>
 </html>

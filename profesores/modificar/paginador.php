@@ -18,12 +18,12 @@ else
   	$PagAct=1;
 	}
 
-$Resultado=mysql_query("SELECT * FROM profesor LIMIT $RegistrosAEmpezar, $RegistrosAMostrar",$conectar);
+$Resultado=mysqli_query($conectar,"SELECT * FROM profesor LIMIT $RegistrosAEmpezar, $RegistrosAMostrar");
 
 $color = 0;
 echo ("<hr>");
-if(is_resource($Resultado)){
-	while($MostrarFila=mysql_fetch_array($Resultado))
+if($Resultado instanceof mysqli_result){
+	while($MostrarFila=mysqli_fetch_array($Resultado))
 	{
 		if ($color == 0)
 		{
@@ -50,9 +50,9 @@ if(is_resource($Resultado)){
 }
  //******--------determinar las páginas---------******//
 
-$profesores = mysql_query("SELECT * FROM profesor",$conectar);
-if(is_resource($profesores)){
-	$NroRegistros=mysql_num_rows($profesores);
+$profesores = mysqli_query($conectar,"SELECT * FROM profesor");
+if($profesores instanceof mysqli_result){
+	$NroRegistros=mysqli_num_rows($profesores);
 }
 
 $PagAnt=$PagAct-1;

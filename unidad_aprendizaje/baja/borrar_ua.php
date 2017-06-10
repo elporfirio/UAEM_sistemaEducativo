@@ -52,12 +52,12 @@ function confirmar()
 		$ua_borradas = implode(' , ',$aLista);
 		}
 		
-		$borrado = mysql_query($sQuery, $conectar);
+		$borrado = mysqli_query($conectar, $sQuery);
 				
 	if($borrado)
 		echo ("Se han borrado satisfactoriamente las unidades<br><br> $ua_borradas");
 
-	mysql_close($conectar);
+	mysqli_close($conectar);
 	?>
     <p><input type="button" onClick="document.location='baja_ua.php'"  value="&lt;&lt; Regresar a la Baja de Unidades de Aprendizaje"></p>
   </div>

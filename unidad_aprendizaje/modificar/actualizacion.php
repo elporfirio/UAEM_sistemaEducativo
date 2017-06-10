@@ -1,8 +1,8 @@
 <?php
-//Desarrollado por Jesus Liñán
+//Desarrollado por Jesus Liï¿½ï¿½n
 //webmaster@ribosomatic.com
 //ribosomatic.com
-//Puedes hacer lo que quieras con el código
+//Puedes hacer lo que quieras con el cï¿½digo
 //pero visita la web cuando te acuerdes
 
 //Configuracion de la conexion a base de datos
@@ -19,10 +19,10 @@ $observaciones = $_POST["observaciones"];
 $consulta="UPDATE unidad_aprendizaje SET unidad_aprendizaje='$unidad_aprendizaje', creditos='$creditos', plan_estudio='$plan_estudio', observaciones='$observaciones' WHERE codigo='$codigo'";
 
 //se hace la consulta
-$hacerconsulta=mysql_query ($consulta,$conectar);
+$hacerconsulta=mysqli_query ($conectar,$consulta);
 
 //errores por si los hay
-$error = mysql_error();
-$nuerror = mysql_errno();
+$error = mysqli_error($conectar);
+$nuerror = mysqli_errno($conectar);
 
 ?>

@@ -46,20 +46,24 @@
 		
 		//revisar las unidades que ya imparte
 		$checar = "select * from asignatura_ua WHERE curp = $curp";
-		$chekeo = mysql_query($checar, $conectar);
-		$unidades_impartidas = mysql_num_rows($chekeo);
+		$chekeo = mysqli_query($conectar, $checar);
+		if($chekeo instanceof mysqli_result){
+            $unidades_impartidas = mysqli_num_rows($chekeo);
+        } else {
+		    $unidades_impartidas = 0;
+        }
 		
 		if($unidades_impartidas < 4)
 			{
 			//datos de la consulta
-			$consulta="insert into asignatura_ua values ('$curp','$codigo','NULL')";
+			$consulta="insert into asignatura_ua values ('$curp','$codigo', 0)";
 
 			//se hace la consulta
-			$hacerconsulta=mysql_query ($consulta,$conectar);
+			$hacerconsulta=mysqli_query($conectar, $consulta);
 
 			//errores por si los hay
-			$error = mysql_error();
-			$nuerror = mysql_errno();
+			$error = mysqli_error($conectar);
+			$nuerror = mysqli_errno($conectar);
 			if($hacerconsulta)
 				echo("El profesor a sido asignado correctamente con la Unidad de Aprendizaje <br><br><br>");
 			else

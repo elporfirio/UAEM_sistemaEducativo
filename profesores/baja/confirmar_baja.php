@@ -39,9 +39,9 @@
 			
 			$consulta = "SELECT * FROM profesor WHERE $tipo like '%$datobaja%';";
  
-			$hacerconsulta = mysql_query($consulta, $conectar);
+			$hacerconsulta = mysqli_query($conectar, $consulta);
 	
-			$numeroregistros = mysql_num_rows($hacerconsulta);
+			$numeroregistros = mysqli_num_rows($hacerconsulta);
 		
 			echo "<br> Hay <strong>$numeroregistros</strong> registros que coinciden con su busqueda.";
 			
@@ -49,7 +49,7 @@
 
 			if($numeroregistros > 0)
 				{
-				while ($profe = mysql_fetch_array($hacerconsulta,MYSQL_ASSOC))
+				while ($profe = mysqli_fetch_array($hacerconsulta))
 					{
 					echo ("<hr color=\"#2D5269\" size=\"1\">");
 					echo ("Curp: " .$profe["curp"]. "&nbsp;&nbsp;&nbsp;Número de Cedula: " .$profe["cedula"]. "<br>");

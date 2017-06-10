@@ -74,12 +74,12 @@ function verificar()
 		$consulta_prof = "SELECT * FROM profesor order by nombre";
  		$consulta_ua = "SELECT * FROM unidad_aprendizaje order by unidad_aprendizaje";
 		
-		$hacerconsulta_prof = mysql_query($consulta_prof, $conectar);
-		$hacerconsulta_ua = mysql_query($consulta_ua, $conectar);
+		$hacerconsulta_prof = mysqli_query($conectar, $consulta_prof);
+		$hacerconsulta_ua = mysqli_query($conectar, $consulta_ua);
 
-		if(is_resource($hacerconsulta_prof) and is_resource($hacerconsulta_ua)){
-			$profesores = mysql_num_rows($hacerconsulta_prof);
-			$unidades = mysql_num_rows($hacerconsulta_ua);
+		if($hacerconsulta_prof instanceof mysqli_result and $hacerconsulta_ua instanceof mysqli_result){
+			$profesores = mysqli_num_rows($hacerconsulta_prof);
+			$unidades = mysqli_num_rows($hacerconsulta_ua);
 		}
 
 		echo "<br> Hay <strong>$profesores</strong> Profesores en Total, Registrados \n";
@@ -92,7 +92,7 @@ function verificar()
 		if($profesores > 0)
 			{
 			
-			while ($profe = mysql_fetch_array($hacerconsulta_prof,MYSQL_ASSOC))
+			while ($profe = mysqli_fetch_array($hacerconsulta_prof))
 				{
 				echo ("<option value=\"".$profe["curp"]."\">".$profe["curp"]." -- ".$profe["nombre"]."</option>");
 				}
@@ -108,7 +108,7 @@ function verificar()
 		if($unidades > 0)
 			{
 			
-			while ($profe = mysql_fetch_array($hacerconsulta_ua,MYSQL_ASSOC))
+			while ($profe = mysqli_fetch_array($hacerconsulta_ua))
 				{
 				echo ("<option value=\"".$profe["codigo"]."\">".$profe["codigo"]." -- ".$profe["unidad_aprendizaje"]."</option>");
 				}

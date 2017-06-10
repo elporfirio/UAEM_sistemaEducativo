@@ -7,11 +7,10 @@
 
 <?php
 	$servidor="localhost";
-	$usuario="elporfirio";
-	$clave="x21anshel";
-	$conectar=mysql_connect ($servidor, $usuario, $clave);
-	$basededatos="sistema_educativo";
-	mysql_select_db ($basededatos, $conectar);
+	$usuario="root";
+	$clave="root";
+    $basededatos="sistema_educativo";
+	$conectar=mysqli_connect($servidor, $usuario, $clave, $basededatos);
  ?>
 <body>
 </body>

@@ -6,9 +6,9 @@ include("../../conectar.php");
 //consulta los datos del empleado por su id
 $idemp=$_POST['codigo'];
 
-$sql=mysql_query("SELECT * FROM unidad_aprendizaje WHERE codigo=$codigo",$conectar);
+$sql=mysqli_query($conectar,"SELECT * FROM unidad_aprendizaje WHERE codigo=$idemp");
 
-$row = mysql_fetch_array($sql);
+$row = mysqli_fetch_array($sql);
 
 //valores de las consultas
 $codigo=$row['codigo'];

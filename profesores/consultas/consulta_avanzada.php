@@ -65,15 +65,15 @@
 		
 		echo ("$consulta");
  
-		$hacerconsulta = mysql_query($consulta, $conectar);
-		$numeroregistros = mysql_num_rows($hacerconsulta);
+		$hacerconsulta = mysqli_query($conectar, $consulta);
+		$numeroregistros = mysqli_num_rows($hacerconsulta);
 		
 		echo "<br> Hay <strong>$numeroregistros</strong> Profesores en Total, Registrados \n";
 
 		if($numeroregistros > 0)
 			{
 			
-			while ($profe = mysql_fetch_array($hacerconsulta,MYSQL_ASSOC))
+			while ($profe = mysqli_fetch_array($hacerconsulta))
 				{
 				echo ("<hr>");
 				echo ("Curp: " .$profe["curp"]. "&nbsp;&nbsp;&nbsp;Número de Cedula: " .$profe["cedula"]. "<br>");

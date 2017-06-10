@@ -32,7 +32,7 @@ $consulta.="fecha_nacimiento date,";
 $consulta.="primary key (curp)";
 $consulta.=")type = innodb;";
 
-$consultando=mysql_query($consulta, $conectar);
+$consultando=mysqli_query($conectar, $consulta);
 
 $consulta="create table if not exists unidad_aprendizaje (";
 $consulta.="codigo int not null,";
@@ -43,7 +43,7 @@ $consulta.="observaciones varchar(255),";
 $consulta.="primary key (codigo)";
 $consulta.=")type = innodb;";
 
-$consultando=mysql_query($consulta, $conectar);
+$consultando=mysqli_query($conectar, $consulta);
 
 $consulta="create table if not exists asignatura_ua (";
 $consulta.="curp varchar(20) not null,";
@@ -53,14 +53,14 @@ $consulta.="foreign key (curp) references profesor(curp) on update cascade on de
 $consulta.="foreign key (codigo) references unidad_aprendizaje(codigo) on update cascade on delete restrict";
 $consulta.=")type = innodb;";
 
-$consultando=mysql_query($consulta, $conectar);
+$consultando=mysqli_query($conectar, $consulta);
 
 if ($consultando)
 	echo "Se ha creado la base de datos satisfactoriamente";
 else
 	{
 	echo "Imposible Terminar, hay un error: ";
-	$error = mysql_error();
+	$error = mysqli_error($conectar);
 	echo "$error";
 	}
 ?>

@@ -44,11 +44,11 @@ $mail_completo = "$mail@"."$mail_company";
 $consulta="UPDATE profesor SET curp='$curp',nombre='$nombre',apellido_p='$apellido_p',apellido_m'$apellido_m',edad='$edad',sexo='$sexo',estado_civil='$estado_civil',profesion='$profesion',cedula='$cedula',mail='$mail_completo',movil='$movil',fecha_nacimiento='$fecha_nacimiento' WHERE curp='$curp'";
 
 //se hace la consulta
-$hacerconsulta=mysql_query ($consulta,$conectar);
+$hacerconsulta=mysqli_query ($conectar, $consulta);
 
 //errores por si los hay
-$error = mysql_error();
-$nuerror = mysql_errno();
+$error = mysqli_error($conectar);
+$nuerror = mysqli_errno($conectar);
 
 if($hacerconsulta)
 	echo ("si se pudo pero no se que pedo");

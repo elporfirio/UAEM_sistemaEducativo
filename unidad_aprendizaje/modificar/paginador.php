@@ -18,12 +18,12 @@ else
   	$PagAct=1;
 	}
 
-$Resultado=mysql_query("SELECT * FROM unidad_aprendizaje LIMIT $RegistrosAEmpezar, $RegistrosAMostrar",$conectar);
+$Resultado=mysqli_query($conectar,"SELECT * FROM unidad_aprendizaje LIMIT $RegistrosAEmpezar, $RegistrosAMostrar");
 
 $color = 0;
 echo ("<hr>");
-if(is_resource($Resultado)){
-	while($MostrarFila=mysql_fetch_array($Resultado))
+if($Resultado instanceof mysqli_result){
+	while($MostrarFila=mysqli_fetch_array($Resultado))
 	{
 		if ($color == 0)
 		{
@@ -48,9 +48,9 @@ if(is_resource($Resultado)){
 
 
  //******--------determinar las páginas---------******//
- $unidadAp = mysql_query("SELECT * FROM unidad_aprendizaje",$conectar);
-if(is_resource($unidadAp)){
-	$NroRegistros=mysql_num_rows($unidadAp);
+ $unidadAp = mysqli_query($conectar,"SELECT * FROM unidad_aprendizaje");
+if($unidadAp instanceof mysqli_result){
+	$NroRegistros=mysqli_num_rows($unidadAp);
 }
 
 $PagAnt=$PagAct-1;
