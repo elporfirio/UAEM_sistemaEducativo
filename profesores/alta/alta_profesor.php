@@ -258,11 +258,11 @@ function verificar()
       <p>Sexo:</p>
       <p>
     <label>
-    <input name="sexo" type="radio" id="Sexo_0" value="masculino" checked="checked" />
+    <input name="sexo" type="radio" id="Sexo_0" value="m" checked="checked" />
     Masculino    </label>
     <br />
     <label>
-    <input name="sexo" type="radio" id="Sexo_1" value="femenino" />
+    <input name="sexo" type="radio" id="Sexo_1" value="f" />
     Femenino</label>
   </p>
   <p>

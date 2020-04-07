@@ -6,7 +6,7 @@ include("../../conectar.php");
 //consulta los datos del empleado por su id
 $idemp=$_POST['idemp'];
 
-$sql=mysqli_query($conectar,"SELECT * FROM profesor WHERE curp=$idemp");
+$sql=mysqli_query($conectar,"SELECT * FROM profesor WHERE curp='" . $idemp . "'");
 
 $row = mysqli_fetch_array($sql);
 

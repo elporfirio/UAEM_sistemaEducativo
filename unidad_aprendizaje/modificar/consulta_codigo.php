@@ -6,8 +6,18 @@ include("../../conectar.php");
 //consulta los datos del empleado por su id
 $idemp=$_POST['codigo'];
 
-$sql=mysqli_query($conectar,"SELECT * FROM unidad_aprendizaje WHERE codigo=$idemp");
+$con = mysqli_connect("localhost","root","root","sistema_educativo");
 
+if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+}
+$sql=mysqli_query($con,"SELECT * FROM unidad_aprendizaje WHERE codigo='" . $idemp ."'");
+
+if(!$sql) {
+    echo $sql;
+    echo "Murio el SQL";
+}
 $row = mysqli_fetch_array($sql);
 
 //valores de las consultas
