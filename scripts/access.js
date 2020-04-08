@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(response => {
         if (response.success) {
-          window.location.replace("bienvenida.php");
+          window.location.replace("bienvenida.html");
         } else {
           divMessage.innerHTML = "<p class='error-text'>Datos de Acceso incorrectos</p>";
         }
