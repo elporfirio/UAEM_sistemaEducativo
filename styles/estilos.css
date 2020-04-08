@@ -1,20 +1,46 @@
 @charset "UTF-8";
 body {
-	background-image: url(imagenes/fondo.png);
+	background-image: url("../imagenes/fondo.png");
 	background-repeat: repeat-x;
 	text-align: center;
 	margin-top: 40px;
 	background-color: #79C4F5;
 }
-#principal {
+.background-main {
 	margin:0 auto 0 auto;
-	width:689px;
-	background-image: url(imagenes/efecto_trans.png);
+	width: 689px;
+	height: 533px;
+	background-image: url("../imagenes/efecto_trans.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 533px;
-	vertical-align: middle;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+.presentation-image {
+	background-image: url("../imagenes/portada.png");
+	width: 642px;
+	height: 482px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.button-access {
+	display: block;
+	background-image: url("../imagenes/entrar_1.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 112px;
+	height: 28px;
+	margin: auto auto 20px;
+}
+
+.button-access:hover {
+	background-image: url("../imagenes/entrar_2.jpg");
+}
+
 #contenido {
 	margin:0 auto 0 auto;
 	width:689px;
