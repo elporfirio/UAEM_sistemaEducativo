@@ -1,0 +1,29 @@
+.form-access input {
+    font-size: xx-large;
+    border-radius: 10px;
+    color: #3E6F8F;
+    border: solid 2px #3E6F8F;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    box-shadow: 1px 1px 4px;
+}
+
+.form-access button {
+    color: #ACD8F5;
+    background-color: #3E6F8F;
+    width: 100%;
+    padding: 10px;
+    font-size: larger;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    outline: none;
+    border: solid 1px #3E6F8F;
+    box-shadow: 1px 1px 4px;
+    cursor: pointer;
+}
+
+.error-text {
+    color: red;
+}
