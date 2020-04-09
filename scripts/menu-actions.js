@@ -1,9 +1,18 @@
 import formAddProfesor from './formAddProfesor.js';
 import formSearchProfessor from "./formSearchProfessor.js";
+import formAddSubject from "./formAddSubject.js";
 
 function actionDispatcher(action, event){
   if(action === 'add') {
     formAddProfesor(event);
+  } else if (action === 'search'){
+    formSearchProfessor(event);
+  }
+}
+
+function actionSubjectDispatcher(action, event){
+  if(action === 'add') {
+    formAddSubject(event);
   } else if (action === 'search'){
     formSearchProfessor(event);
   }
@@ -52,6 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(function(html) {
           divContent.innerHTML = html;
+          const form = divContent.getElementsByTagName('form');
+          for (let item of form) {
+            item.addEventListener('submit', event => {
+              event.preventDefault();
+              actionSubjectDispatcher(action, event);
+            })
+          }
         })
         .catch(function(err) {
           console.warn("Something went wrong.", err);

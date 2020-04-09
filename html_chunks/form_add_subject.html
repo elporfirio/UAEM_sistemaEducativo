@@ -1,0 +1,52 @@
+<form
+  id="form-add-subject"
+  name="form-add-subject"
+  method="post"
+  data-type="add-subject"
+>
+  <h1>Ingresa los Datos requeridos</h1>
+  <p>
+    Ingresa todos los datos requerido por el formulario y haz &quot;click&quot;
+    en el boton &quot;Dar de Alta&quot;
+  </p>
+
+  <div style="display: flex; padding: 0.5em; flex-direction: column">
+    <fieldset>
+      <legend>Datos de la Unidad de Aprendizaje</legend>
+      <div style="display: flex">
+        <div style="flex: 1; margin-right: 20px">
+          <div class="form-input">
+            <label for="code">Código de la Materia:</label>
+            <input id="code" name="code" type="text" required />
+          </div>
+          <div class="form-input">
+            <label for="name">Nombre de la Materia:</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="form-input">
+            <label for="credits">Cantidad de Créditos:</label>
+            <input id="credits" name="credits" type="text" required />
+          </div>
+        </div>
+        <div style="flex: 1">
+          <div class="form-select">
+            <label for="studyPlan">Plan de Estudio: </label>
+            <select name="studyPlan" id="studyPlan" required>
+              <option value="">selecciona una</option>
+              <option value="rigido">Plan Rigido</option>
+              <option value="flexible">Plan Flexible</option>
+            </select>
+          </div>
+          <div class="form-textarea">
+            <label for="comments">Observaciones:</label>
+            <textarea name="comments" id="comments"></textarea>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div>
+      <button>Crear</button>
+      <div id="result-message"></div>
+    </div>
+  </div>
+</form>

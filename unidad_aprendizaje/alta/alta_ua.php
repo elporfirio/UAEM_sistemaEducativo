@@ -85,41 +85,7 @@ function verificar()
     <h1>Alta de Unidad de Aprendizaje<br />
     </h1>
     <p class="Estilo1">Ingresa todos los datos requerido por el formulario y haz &quot;click&quot; en el boton &quot;Dar de Alta&quot;</p>
-    <form id="formaltas" name="formaltas" method="post" action="registro_ua.php">
-      <div align="center">
-        <table width="83%" border="0" cellspacing="2" cellpadding="2">
-            <tr>
-              <td width="39%" height="240"><p>Codigo de Materia:
-                <br />
-                <input name="codigo" type="text" id="codigo" maxlength="6" />
-                </p>
-                <p>Nombre de la Materia:<br />
-                  <input name="unidad_aprendizaje" type="text" id="unidad_aprendizaje" maxlength="30" />
-                </p>
-                <p>No. de Creditos:<br />
-                  <input name="creditos" type="text" id="creditos" maxlength="3" />
-                </p>
-                <p>Plan de Estudio:
-                  <select name="plan_estudio" id="plan_estudio">
-                    <option value="NULL" selected="selected">Seleccione</option>
-                    <option value="Rigido">Plan Rigido</option>
-                    <option value="Flexible">Plan Flexible</option>
-                                                        </select>
-                </p>
-              <p>&nbsp;</p>
-              </td>
-              <td width="61%"><p>Observaciones:</p>
-                <p>
-                  <textarea name="observaciones" cols="30" rows="5" wrap="virtual" id="observaciones"></textarea>
-                </p></td>
-            </tr>
-              </table>
-        <p>
-          <input type="button" name="Botón" id="enviar" value="Dar de Alta" onclick="verificar()"/>
-           <input type="reset" name="reset" id="reset" value="Borrar Valores" />
-        </p>
-      </div>
-    </form>
+
     <p>&nbsp;</p>
   </div>
   <div id="footer">

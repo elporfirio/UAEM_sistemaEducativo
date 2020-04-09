@@ -69,7 +69,8 @@ form button {
 }
 .form-input label,
 .form-select label,
-.form-group-radios label {
+.form-group-radios label,
+.form-textarea label {
   font-size: 0.7em;
   display: block;
 }
@@ -126,4 +127,18 @@ form button {
 }
 .form-select select option {
   font-weight: normal;
+}
+
+.form-textarea textarea {
+  font-size: 0.7em;
+  display: block;
+  width: calc(100% - 2em);
+  min-height: 7em;
+  border: 1px solid #3e6f8f;
+  color: #3e6f8f;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 0;
+  resize: none;
+  outline: none;
 }
