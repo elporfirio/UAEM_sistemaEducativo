@@ -4,50 +4,51 @@
     <meta charset="UTF-8" />
     <title>UAEM: Sistema de Gestion de Horarios // by elporfirio</title>
     <link href="styles/estilos.css" rel="stylesheet" type="text/css" />
+    <link href="styles/forms.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="wrapper">
       <header></header>
-      <div class="menu-teachers">
+      <div class="menu-teachers" id="menu-teachers">
         <ul>
           <li style="background-image: url('imagenes/alta.png')">
-            <a href="profesores/alta/alta_profesor.php">alta</a>
+            <a data-action="add" href="profesores/alta/alta_profesor.php">alta</a>
           </li>
           <li style="background-image:url('imagenes/baja.png')">
-            <a href="profesores/baja/baja_profesor.php">baja</a>
+            <a data-action="delete" href="profesores/baja/baja_profesor.php">baja</a>
           </li>
           <li style="background-image:url('imagenes/consultar.png')">
-            <a href="profesores/consultas/consulta_profesor.php">consultar</a>
+            <a data-action="search" href="profesores/consultas/consulta_profesor.php">consultar</a>
           </li>
           <li style="background-image:url('imagenes/modificar.png')">
-            <a href="profesores/modificar/modificar_profesor.php">modificar</a>
+            <a data-action="update" href="profesores/modificar/modificar_profesor.php">modificar</a>
           </li>
           <li style="background-image:url('imagenes/asignar.png')">
-            <a href="profesores/asignar/asignar_ua.php">Asignar U.A.</a>
+            <a data-action="assign" href="profesores/asignar/asignar_ua.php">Asignar U.A.</a>
           </li>
         </ul>
       </div>
-      <div class="menu-subject">
+      <div class="menu-subjects" id="menu-subjects">
         <ul>
           <li style="background-image: url('imagenes/alta_ua.png')">
-            <a href="unidad_aprendizaje/alta/alta_ua.php">alta</a>
+            <a data-action="add" href="unidad_aprendizaje/alta/alta_ua.php">alta</a>
           </li>
           <li style="background-image: url('imagenes/baja_ua.png')">
-            <a href="unidad_aprendizaje/baja/baja_ua.php">baja</a>
+            <a data-action="delete" href="unidad_aprendizaje/baja/baja_ua.php">baja</a>
           </li>
           <li style="background-image: url('imagenes/consultar_ua.png')">
-            <a href="unidad_aprendizaje/consultas/consultar_ua.php"
+            <a data-action="search" href="unidad_aprendizaje/consultas/consultar_ua.php"
               >consultar</a
             >
           </li>
           <li style="background-image: url('imagenes/modificar_ua.png')">
-            <a href="unidad_aprendizaje/modificar/modificar_ua.php"
+            <a data-action="update" href="unidad_aprendizaje/modificar/modificar_ua.php"
               >modificar</a
             >
           </li>
         </ul>
       </div>
-      <div class="content">
+      <div class="content" id="content">
         <div>
           <h3>Bienvenidos</h3>
           <p>
@@ -90,5 +91,6 @@
       <footer></footer>
     </div>
     <script src="scripts/validate-user-session.js"></script>
+    <script src="scripts/menu-actions.js" type="module"></script>
   </body>
 </html>
