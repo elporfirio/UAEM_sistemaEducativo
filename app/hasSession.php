@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION["activeSesion"])) {
+if (isset($_SESSION["activeSession"])) {
     echo json_encode(["success" => true]);
 } else {
     http_response_code(403);

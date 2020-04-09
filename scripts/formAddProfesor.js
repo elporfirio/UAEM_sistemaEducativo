@@ -1,21 +1,11 @@
+import formDataToJSON from "./formDataToJSON.js";
+
 export default function sendProfesorForm(event) {
   const formData = new FormData(event.target);
   const divMessage = document.getElementById('result-message');
 
   const url = "app/addProfessor.php";
-
-  const data = {};
-  formData.forEach((value, key) => {
-    // Reflect.has in favor of: object.hasOwnProperty(key)
-    if (!Reflect.has(data, key)) {
-      data[key] = value;
-      return;
-    }
-    if (!Array.isArray(data[key])) {
-      data[key] = [data[key]];
-    }
-    data[key].push(value);
-  });
+  const data = formDataToJSON(formData);
 
   // TODO: Mover strings a archivo de traduccion
   fetch(url, {
@@ -33,7 +23,7 @@ export default function sendProfesorForm(event) {
     .then(response => {
       console.log(response);
       if(response.success) {
-        
+
       }
     });
 }

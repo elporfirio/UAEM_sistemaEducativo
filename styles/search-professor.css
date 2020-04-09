@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+.professor-card {
+    display: flex;
+    min-height: 100px;
+    padding: 1em;
+    font-family: "Open Sans", sans-serif;
+}
+
+.professor-card .photo img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    flex: 1;
+}
+
+.professor-card .data-container {
+    display: flex;
+    padding-left: 1em;
+    flex-direction: column;
+    flex: 9;
+}
+
+.professor-card .data-container .data {
+    font-size: 0.7em;
+}
+
+.professor-card .data-container .data span {
+    font-weight: bold;
+}
+.professor-card .data-container .controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.professor-card .data-container .controls button {
+    width: auto;
+}

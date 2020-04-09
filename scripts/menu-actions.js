@@ -1,5 +1,13 @@
 import formAddProfesor from './formAddProfesor.js';
+import formSearchProfessor from "./formSearchProfessor.js";
 
+function actionDispatcher(action, event){
+  if(action === 'add') {
+    formAddProfesor(event);
+  } else if (action === 'search'){
+    formSearchProfessor(event);
+  }
+}
 document.addEventListener("DOMContentLoaded", () => {
   const menuTeachers = document.getElementById("menu-teachers");
   const menuSubjects = document.getElementById("menu-subjects");
@@ -23,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           for (let item of form) {
             item.addEventListener('submit', event => {
               event.preventDefault();
-              formAddProfesor(event);
+              actionDispatcher(action, event);
             })
           }
         })

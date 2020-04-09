@@ -1,0 +1,24 @@
+<form
+  name="form-search-professor"
+  id="form-search-professor"
+  method="post"
+  data-type="search-professor"
+>
+  <fieldset>
+    <legend>Consulta de Profesores</legend>
+    <div class="form-group-radios">
+      <label>Tipo de busqueda:</label>
+      <div class="form-radio">
+        <input name="typeSearch" type="radio" value="all" checked="checked" />
+        <label>Mostrar todos</label>
+      </div>
+      <div class="form-radio">
+        <input name="typeSearch" type="radio" value="advance" disabled/>
+        <label>Avanzada</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <button>Buscar</button>
+  <div id="result-message"></div>
+</form>

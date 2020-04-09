@@ -28,24 +28,7 @@
   		</div>
 <div id="fondo_contenido">
   <div id="elcontenido"> 
-			<form action="consulta_profesor_esp.php" method="post" name="tipobusqueda" id="tipobusqueda">
-      		<h1>Consulta de Profesores</h1>
-     		 <table width="455">
-     		   <tr>
-       		   <td width="147"><label>
-        	    <input name="busqueda_profesor" type="radio" id="busqueda_profesor_0" value="todos" checked="checked" />
-        	    Mostrar Todos</label></td>
-         	  <td width="137"><label>
-         	   <input type="radio" name="busqueda_profesor" value="buscar" id="busqueda_profesor_1" />
-         	   Busqueda</label></td>
-         	   <td width="155">
-          	  <label>
-        		<input type="submit" name="button" id="button" value="Consultar Profesores" />
-        		</label>
-                	</td> 
-       			 </tr>
-     	 	</table>
-     		</form>
+
 	      
 		<?php
 		include("../../conectar.php");
