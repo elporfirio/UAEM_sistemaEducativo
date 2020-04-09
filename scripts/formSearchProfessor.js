@@ -1,5 +1,6 @@
 export default function formSearchProfessor(event) {
   const formData = new FormData(event.target);
+  const divMessage = document.getElementById("result-message");
 
   const queryString = new URLSearchParams(formData).toString();
   const url = "app/searchProfessor.php?" + queryString;
@@ -24,7 +25,7 @@ function printProfessorList(professorData) {
 
   const html = professorData.reduce((last, current, index) => {
     const temp = `
-        <div class="professor-card">
+        <div class="professor-card" id="professor-card-${current.idprofessor}">
             <div class="photo">
                 <img src="http://placebeard.it/g/150/150" alt="professor_${current.name}">
             </div>
@@ -36,8 +37,8 @@ function printProfessorList(professorData) {
                 </div>
                 <div class="controls">
                     <div style="flex: 1">
-                        <button>editar</button>
-                        <button>eliminar</button>
+                        <button data-action="edit" data-professorId="${current.idprofessor}" >editar</button>
+                        <button data-action="delete" data-professorId="${current.idprofessor}" data-professorName="${current.name} ${current.secondName}">eliminar</button>
                     </div>
                     <div style="flex: 1"></div>
                 </div>
@@ -48,4 +49,51 @@ function printProfessorList(professorData) {
   }, "");
 
   divMessage.innerHTML = html;
+  assignEditActions(divMessage);
+}
+
+function assignEditActions(domElement) {
+  const buttons = domElement.getElementsByTagName("button");
+
+  for (let btn of buttons) {
+    btn.addEventListener("click", event => {
+      if (event.target.dataset.action === "delete") {
+        confirmDelete(event);
+      } else if (event.target.dataset.action === "edit") {
+        alert("DEBEMOS IR AL FORM DE EDITAR");
+      }
+    });
+  }
+}
+
+function confirmDelete(event) {
+  event.stopPropagation();
+  event.preventDefault();
+
+  const { professorid, professorname } = event.target.dataset;
+
+  if (confirm(`¿desea eliminar a ${professorname}?`)) {
+    console.log("ELIMINAR a", professorid);
+    deleteProfessorById(professorid);
+  }
+}
+
+function deleteProfessorById(id) {
+  const divMessage = document.getElementById("result-message");
+  const url = "app/deleteProfessor.php?id=" + id;
+
+  fetch(url, {
+    method: "DELETE" // or 'PUT'
+  })
+    .then(res => res.json())
+    .catch(error => {
+      divMessage.innerHTML =
+        "<p class='error-text'>No se econtraron profesores</p>";
+    })
+    .then(response => {
+      console.log(response);
+      // TODO: Refrescar la lista
+      const card = document.getElementById(`professor-card-${id}`);
+      card.parentNode.removeChild(card);
+    });
 }
