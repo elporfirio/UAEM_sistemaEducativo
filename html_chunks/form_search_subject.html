@@ -1,0 +1,24 @@
+<form
+  name="form-search-subject"
+  id="form-search-subject"
+  method="post"
+  data-type="search-subject"
+>
+  <fieldset>
+    <legend>Consulta de Unidades de Aprendizaje</legend>
+    <div class="form-group-radios">
+      <label>Tipo de busqueda:</label>
+      <div class="form-radio">
+        <input name="typeSearch" type="radio" value="all" checked="checked" />
+        <label>Mostrar todas</label>
+      </div>
+      <div class="form-radio">
+        <input name="typeSearch" type="radio" value="advance" disabled/>
+        <label>Avanzada</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <button>Buscar</button>
+  <div id="result-message"></div>
+</form>

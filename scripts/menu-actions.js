@@ -1,6 +1,7 @@
 import formAddProfesor from './formAddProfesor.js';
 import formSearchProfessor from "./formSearchProfessor.js";
 import formAddSubject from "./formAddSubject.js";
+import formSearchSubject from "./formSearchSubject.js";
 
 function actionDispatcher(action, event){
   if(action === 'add') {
@@ -14,7 +15,7 @@ function actionSubjectDispatcher(action, event){
   if(action === 'add') {
     formAddSubject(event);
   } else if (action === 'search'){
-    formSearchProfessor(event);
+    formSearchSubject(event);
   }
 }
 document.addEventListener("DOMContentLoaded", () => {

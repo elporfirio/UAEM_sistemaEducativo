@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+.subject-card {
+    display: flex;
+    min-height: 40px;
+    padding: 1em;
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+}
+
+.subject-card .data {
+    font-size: 0.7em;
+}
+
+.subject-card .data span{
+    font-weight: bold;
+}
+
+.subject-card .controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subject-card .controls button {
+    width: auto;
+}

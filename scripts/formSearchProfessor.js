@@ -1,5 +1,3 @@
-import formDataToJSON from "./formDataToJSON.js";
-
 export default function formSearchProfessor(event) {
   const formData = new FormData(event.target);
 
