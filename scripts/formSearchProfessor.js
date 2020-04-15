@@ -1,3 +1,5 @@
+import editProfessorForm from "./formEditProfesor.js";
+
 export default function formSearchProfessor(event) {
   const formData = new FormData(event.target);
   const divMessage = document.getElementById("result-message");
@@ -17,6 +19,40 @@ export default function formSearchProfessor(event) {
       if (response.success) {
         printProfessorList(response.result);
       }
+    });
+}
+
+function printProfessorEditForm(professorData) {
+  console.log('PROFESOR DATA',professorData);
+  const divContent = document.getElementById("content");
+
+  fetch(`html_chunks/form_edit_teacher.html`)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(html) {
+      divContent.innerHTML = html;
+      const form = divContent.getElementsByTagName("form");
+      const inputs = form[0].elements;
+
+      for (let item of inputs) {
+        if(item.name !== ""){
+          console.log(professorData[0][item.name]);
+          item.value = professorData[0][item.name];
+        }
+      }
+
+      for (let item of form) {
+        item.addEventListener("submit", event => {
+          event.preventDefault();
+          // TODO
+          console.log('GUARDAR EDICION');
+          editProfessorForm(event, professorData[0].idprofessor);
+        });
+      }
+    })
+    .catch(function(err) {
+      console.warn("Something went wrong.", err);
     });
 }
 
@@ -60,10 +96,34 @@ function assignEditActions(domElement) {
       if (event.target.dataset.action === "delete") {
         confirmDelete(event);
       } else if (event.target.dataset.action === "edit") {
-        alert("DEBEMOS IR AL FORM DE EDITAR");
+        editProfessor(event);
       }
     });
   }
+}
+
+function editProfessor(event) {
+  event.stopPropagation();
+  event.preventDefault();
+
+  const divMessage = document.getElementById("result-message");
+  const id = event.target.dataset.professorid;
+  const url = "app/getProfessor.php?id=" + id;
+
+  fetch(url, {
+    method: "GET" // or 'PUT'
+  })
+    .then(res => res.json())
+    .catch(error => {
+      divMessage.innerHTML = "<p class='error-text'>No se econtró profesor</p>";
+    })
+    .then(response => {
+      console.log(response);
+      // if (response.success) {
+      //   printProfessorList(response.result);
+      // }
+      printProfessorEditForm(response.result);
+    });
 }
 
 function confirmDelete(event) {
