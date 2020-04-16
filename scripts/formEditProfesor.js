@@ -4,7 +4,7 @@ export default function editProfessorForm(event, id) {
   const formData = new FormData(event.target);
   const divMessage = document.getElementById('result-message');
 
-  const url = "app/editProfessor.php?id=" + id;
+  const url = "app/updateProfessor.php?id=" + id;
   const data = formDataToJSON(formData);
 
   // TODO: Mover strings a archivo de traduccion
